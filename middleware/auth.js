@@ -1,6 +1,12 @@
 require('dotenv').config();
+//This line imports and configures the dotenv module, which is commonly used to load environment variables from a .env file into the process.env object. 
+//This is helpful for keeping sensitive information, such as database connection strings, secure.
+
 const jwt = require('jsonwebtoken');
+//This imports the jsonwebtoken library, which is used for generating and verifying JSON Web Tokens.
+
 const User = require('../models/user');
+//This line imports the User model, suggesting that the application involves user data, likely stored in a database.
 
 const auth = async(req,res,next) =>{
     const token=req.cookies.jwt;
@@ -17,3 +23,4 @@ const auth = async(req,res,next) =>{
     return next();
 }
 module.exports=auth;
+//The middleware function is exported for use in other parts of the application.
